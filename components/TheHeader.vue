@@ -6,6 +6,7 @@ defineOptions({
 
 <template>
   <header class="grid w-full grid-flow-col grid-cols-3 sm:grid-cols-4">
-    Header
+    <TheAvatar />
+    <TheNavbar />
   </header>
 </template>
