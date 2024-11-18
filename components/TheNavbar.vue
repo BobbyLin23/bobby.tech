@@ -53,4 +53,7 @@ const transition = {
       </li>
     </ul>
   </div>
+  <div class="flex items-center justify-center sm:hidden">
+    <MobileNavbar :navigation-items="navigationItems" />
+  </div>
 </template>
