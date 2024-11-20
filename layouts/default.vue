@@ -1,14 +1,18 @@
-<script setup lang="ts">
-const route = useRoute()
-const page = computed(() => route.path.split('/').slice(0, 2).join('/'))
-</script>
-
 <template>
-  <div class="bg-bg-image flex flex-col items-center max-w-4xl px-4 pt-10 mx-auto lg:max-w-5xl sm:px-12 md:px-20 lg:px-12 xl:max-w-7xl min-h-svh">
+  <div class="pointer-events-none fixed inset-0 select-none bg-[url('/grid-black.svg')] bg-top bg-repeat dark:bg-[url('/grid.svg')]" />
+  <span class="pointer-events-none fixed top-0 block h-[800px] w-full select-none bg-[radial-gradient(103.72%_46.58%_at_50%_0%,rgba(5,5,5,0.045)_0%,rgba(0,0,0,0)_100%)] dark:bg-[radial-gradient(103.72%_46.58%_at_50%_0%,rgba(255,255,255,0.09)_0%,rgba(255,255,255,0)_100%)]" />
+  <div class="fixed inset-0 flex justify-center sm:px-8">
+    <div class="flex w-full max-w-7xl lg:px-8">
+      <div class="w-full bg-zinc-50/90 ring-1 ring-zinc-100 dark:bg-zinc-900/80 dark:ring-zinc-400/20" />
+    </div>
+  </div>
+  <div class="relative text-zinc-800 dark:text-zinc-200">
     <TheHeader />
-    <main :class="cn('duration-1000 w-full min-h-[calc(100svh-350px)]', page === '/' ? 'translate-y-20 mt-20 mb-20' : 'mt-16')">
+    <main class="mx-auto max-w-7xl px-8 h-[1000px]">
       <slot />
     </main>
-    <TheFooter />
+    <div class="mt-32">
+      Footer
+    </div>
   </div>
 </template>

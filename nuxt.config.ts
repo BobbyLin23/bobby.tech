@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     componentDir: './components/ui',
   },
   colorMode: {
-    preference: 'dark',
+    preference: 'system',
     classSuffix: '',
   },
 })
