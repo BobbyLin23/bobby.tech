@@ -29,8 +29,8 @@ function updateStyles() {
   const updateHeaderStyles = () => {
     if (!headerRef.value)
       return
-
-    const { top, height } = headerRef.value.getBoundingClientRect()
+    console.log(headerRef.value)
+    const { top, height } = headerRef.value?.getBoundingClientRect()
     const scrollY = Math.min(
       Math.max(window.scrollY, 0),
       document.body.scrollHeight - window.innerHeight,
@@ -120,33 +120,34 @@ onUnmounted(() => {
         </div>
       </TheContainer>
     </template>
-
-    <TheContainer
+    <div
       ref="headerRef"
       class="top-0 z-10 h-16 pt-6"
       :style="{ position: headerPosition as any }"
     >
-      <div
-        class="top-[var(--header-top,theme(spacing.6))] w-full"
-        :style="{ position: headerInnerPosition as any }"
-      >
-        <div class="relative flex gap-4">
-          <div class="flex flex-1">
-            <template v-if="!isHomePage">
-              <TheAvatar />
-            </template>
-          </div>
-          <div class="flex flex-1 justify-end md:justify-center">
-            Navbar
-          </div>
-          <div class="flex justify-end gap-3 md:flex-1">
-            <div class="pointer-events-auto">
-              <ModeToggle />
+      <TheContainer>
+        <div
+          class="top-[var(--header-top,theme(spacing.6))] w-full"
+          :style="{ position: headerInnerPosition as any }"
+        >
+          <div class="relative flex gap-4">
+            <div class="flex flex-1">
+              <template v-if="!isHomePage">
+                <TheAvatar />
+              </template>
+            </div>
+            <div class="flex flex-1 justify-end md:justify-center">
+              <NavigationBar />
+            </div>
+            <div class="flex justify-end gap-3 md:flex-1">
+              <div class="pointer-events-auto">
+                <ModeToggle />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </TheContainer>
+      </TheContainer>
+    </div>
   </header>
   <div v-if="isHomePage" class="h-[--content-offset]" />
 </template>
