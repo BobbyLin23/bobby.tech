@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss', 'shadcn-nuxt', '@nuxt/image'],
+  modules: ['@nuxtjs/tailwindcss', 'shadcn-nuxt', '@nuxt/image', '@vueuse/nuxt'],
   devtools: { enabled: true },
   devServer: {
     port: 3012,

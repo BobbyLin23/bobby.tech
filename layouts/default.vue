@@ -8,7 +8,7 @@
   </div>
   <div class="relative text-zinc-800 dark:text-zinc-200">
     <TheHeader />
-    <main class="mx-auto max-w-7xl px-8 h-[1000px]">
+    <main class="mx-auto max-w-7xl px-8">
       <slot />
     </main>
     <div class="mt-32">
