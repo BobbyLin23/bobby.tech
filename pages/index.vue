@@ -3,6 +3,8 @@
 </script>
 
 <template>
-  <div>123</div>
-  <ModeToggle />
+  <div class="space-y-10">
+    <Hero />
+    <SocialLink />
+  </div>
 </template>

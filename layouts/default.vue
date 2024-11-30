@@ -8,11 +8,11 @@
   </div>
   <div class="relative text-zinc-800 dark:text-zinc-200">
     <TheHeader />
-    <main class="mx-auto max-w-7xl px-8">
+    <main class="mx-auto max-w-7xl px-8 mt-16">
       <slot />
     </main>
     <div class="mt-32">
-      Footer
+      <TheFooter />
     </div>
   </div>
 </template>
