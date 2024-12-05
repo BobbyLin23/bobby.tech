@@ -4,6 +4,6 @@
 
 <template>
   <div>
-    Message
+    Daily
   </div>
 </template>

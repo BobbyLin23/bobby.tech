@@ -30,26 +30,26 @@ defineProps<{
       <span class="relative z-20 flex items-center justify-between opacity-50 transition-opacity group-hover:opacity-80">
         <span class="inline-flex items-center space-x-3">
           <span class="inline-flex items-center space-x-1 text-[12px] font-medium text-[--post-image-fg] md:text-sm">
-            <CalendarIcon />
+            <CalendarIcon class="size-4" />
             <span>
               {{ post.createdAt }}
             </span>
           </span>
 
           <span v-if="Array.isArray(post.categories)" class="inline-flex items-center space-x-1 text-[12px] font-medium text-[--post-image-fg] md:text-sm">
-            <BookIcon />
+            <BookIcon class="size-4" />
             <span>{{ post.categories.join(', ') }}</span>
           </span>
         </span>
         <span class="inline-flex items-center space-x-3 text-[12px] font-medium text-[--post-image-fg] md:text-xs">
           <span class="inline-flex items-center space-x-1">
-            <MousePointerClickIcon />
-            <!-- <span>{prettifyNumber(views, true)}</span> -->
+            <MousePointerClickIcon class="size-4" />
+            <span>123</span>
           </span>
 
           <span class="inline-flex items-center space-x-1">
-            <HourglassIcon />
-            <span>Reading Time:{{ post.readingTime.toFixed(0) }} min</span>
+            <HourglassIcon class="size-4" />
+            <span>Reading Time: {{ post.readingTime.toFixed(0) }} min</span>
           </span>
         </span>
       </span>

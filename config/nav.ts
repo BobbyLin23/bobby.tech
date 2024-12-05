@@ -1,6 +1,6 @@
 export const navigationItems = [
   { href: '/', text: 'Home' },
-  { href: '/blog', text: 'Blog' },
+  { href: '/blogs', text: 'Blog' },
   { href: '/projects', text: 'Project' },
-  { href: '/message', text: 'Message' },
+  { href: '/daily', text: 'Daily' },
 ]
