@@ -1,4 +1,6 @@
 ---
+title: Review in 2024
+description: The review of 2024 for my life.
 createdAt: 2024-12-05
 readingTime: 3
 categories: [life]

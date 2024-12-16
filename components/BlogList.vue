@@ -5,7 +5,6 @@ import type { BlogContent } from '~/types'
 const query: QueryBuilderParams = {
   path: '/blogs',
   sort: [{ date: -1 }],
-  limit: 3,
 }
 </script>
 
