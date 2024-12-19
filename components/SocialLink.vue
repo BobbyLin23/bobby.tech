@@ -1,17 +1,17 @@
 <script lang="ts" setup>
 const menuList = [
   {
-    href: 'https://github.com/bobbylin',
+    href: 'https://github.com/bobbylin23',
     icon: 'mdi:github',
     label: 'GitHub',
   },
   {
-    href: 'https://twitter.com/bobbylin',
+    href: 'https://x.com/BobbyLin23',
     icon: 'mdi:twitter',
     label: 'Twitter',
   },
   {
-    href: 'https://www.linkedin.com/in/bobbylin/',
+    href: 'https://www.linkedin.com/in/bobby-lin-a874a111b/',
     icon: 'mdi:linkedin',
     label: 'LinkedIn',
   },
@@ -21,7 +21,7 @@ const menuList = [
     label: 'Instagram',
   },
   {
-    href: 'https://www.instagram.com/bobbylin/',
+    href: 'mailto:linzhangsheng23@gmail.com',
     icon: 'mdi:email',
     label: 'Email',
   },

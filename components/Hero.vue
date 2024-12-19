@@ -3,7 +3,7 @@
 
 <template>
   <TheContainer>
-    <div class="min-h-[80vh] flex flex-col md:flex-row items-center justify-between py-12 gap-8">
+    <div class="min-h-[60vh] flex flex-col md:flex-row items-center justify-between py-12 gap-8">
       <!-- Left Content -->
       <div class="flex-1 space-y-6 animate-fade-in">
         <div class="space-y-2">
@@ -35,10 +35,12 @@
               <Icon name="i-heroicons-arrow-right" class="ml-2 w-4 h-4" />
             </Button>
           </NuxtLink>
-          <Button variant="outline" size="lg">
-            Download Resume
-            <Icon name="i-heroicons-document-arrow-down" class="ml-2 w-4 h-4" />
-          </Button>
+          <NuxtLink to="/blogs">
+            <Button size="lg">
+              View Blogs
+              <Icon name="mdi:file-document" class="ml-2 w-4 h-4" />
+            </Button>
+          </NuxtLink>
         </div>
       </div>
 
