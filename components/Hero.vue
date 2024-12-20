@@ -32,7 +32,7 @@
           <NuxtLink to="/projects">
             <Button size="lg">
               View Projects
-              <Icon name="i-heroicons-arrow-right" class="ml-2 w-4 h-4" />
+              <Icon name="mdi:arrow-right" class="ml-2 w-4 h-4" />
             </Button>
           </NuxtLink>
           <NuxtLink to="/blogs">

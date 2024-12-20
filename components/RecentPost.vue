@@ -29,7 +29,7 @@ const query: QueryBuilderParams = {
           class="text-primary hover:text-primary/80 transition-colors duration-200 flex items-center gap-2"
         >
           View All
-          <Icon name="i-heroicons-arrow-right" class="w-4 h-4" />
+          <Icon name="mdi:arrow-right" class="w-4 h-4" />
         </NuxtLink>
       </div>
 
@@ -70,7 +70,7 @@ const query: QueryBuilderParams = {
                 class="inline-flex items-center text-sm text-primary hover:text-primary/80 transition-colors duration-200"
               >
                 Read More
-                <Icon name="i-heroicons-arrow-right" class="w-4 h-4 ml-2" />
+                <Icon name="mdi:arrow-right" class="w-4 h-4 ml-2" />
               </NuxtLink>
             </div>
           </article>

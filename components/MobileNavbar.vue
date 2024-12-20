@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ArrowDownIcon, XIcon } from 'lucide-vue-next'
 import { navigationItems } from '~/config'
-
-import MobileNavItem from './ui/MobileNavItem.vue'
 </script>
 
 <template>
