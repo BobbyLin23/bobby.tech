@@ -1,8 +1,22 @@
+import type { PageObjectResponse, QueryDatabaseResponse } from '@notionhq/client/build/src/api-endpoints'
+import process from 'node:process'
 import { notion } from '~/utils/notion'
 
 export default defineEventHandler(async () => {
-  const response = await notion.databases.query({
-    database_id: '2a17b24a27154378a6802f9ffc21b66b',
+  const response: QueryDatabaseResponse = await notion.databases.query({
+    database_id: process.env.NOTION_REPORT_DATABASE_ID as string,
+    filter: {
+      property: 'State',
+      select: {
+        equals: 'Publish',
+      },
+    },
   })
-  return response
+  const { object, results } = response
+
+  if (object === 'list') {
+    return results as PageObjectResponse[]
+  }
+
+  return [] as PageObjectResponse[]
 })

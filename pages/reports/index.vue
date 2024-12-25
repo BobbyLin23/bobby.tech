@@ -1,128 +1,42 @@
 <script lang="ts" setup>
+import { Loader2 } from 'lucide-vue-next'
+
 interface WeeklyReport {
   id: string
-  weekNumber: number
-  year: number
   title: string
   description: string
   createdAt: string
+  icon: string
 }
 
-const weeklyReports: WeeklyReport[] = [
-  {
-    id: '2024-11',
-    weekNumber: 12,
-    year: 2024,
-    title: '第12周周报',
-    description: '本周主要完成了个人网站的基础架构搭建...',
-    createdAt: '2024-03-24',
-  },
-  {
-    id: '2024-12',
-    weekNumber: 11,
-    year: 2024,
-    title: '第11周周报',
-    description: '本周主要进行了项目的性能优化...',
-    createdAt: '2024-03-17',
-  },
-  {
-    id: '2024-13',
-    weekNumber: 11,
-    year: 2024,
-    title: '第11周周报',
-    description: '本周主要进行了项目的性能优化...',
-    createdAt: '2024-03-17',
-  },
-  {
-    id: '2024-14',
-    weekNumber: 11,
-    year: 2024,
-    title: '第11周周报',
-    description: '本周主要进行了项目的性能优化...',
-    createdAt: '2024-03-17',
-  },
-  {
-    id: '2024-15',
-    weekNumber: 11,
-    year: 2024,
-    title: '第11周周报',
-    description: '本周主要进行了项目的性能优化...',
-    createdAt: '2024-03-17',
-  },
-  {
-    id: '2024-16',
-    weekNumber: 11,
-    year: 2024,
-    title: '第11周周报',
-    description: '本周主要进行了项目的性能优化...',
-    createdAt: '2024-03-17',
-  },
-  {
-    id: '2024-17',
-    weekNumber: 11,
-    year: 2024,
-    title: '第11周周报',
-    description: '本周主要进行了项目的性能优化...',
-    createdAt: '2024-03-17',
-  },
-  {
-    id: '2024-18',
-    weekNumber: 11,
-    year: 2024,
-    title: '第11周周报',
-    description: '本周主要进行了项目的性能优化...',
-    createdAt: '2024-03-17',
-  },
-  {
-    id: '2024-19',
-    weekNumber: 11,
-    year: 2024,
-    title: '第11周周报',
-    description: '本周主要进行了项目的性能优化...',
-    createdAt: '2024-03-17',
-  },
-  {
-    id: '2024-20',
-    weekNumber: 11,
-    year: 2024,
-    title: '第11周周报',
-    description: '本周主要进行了项目的性能优化...',
-    createdAt: '2024-03-17',
-  },
-  {
-    id: '2024-21',
-    weekNumber: 11,
-    year: 2024,
-    title: '第11周周报',
-    description: '本周主要进行了项目的性能优化...',
-    createdAt: '2024-03-17',
-  },
-  {
-    id: '2024-22',
-    weekNumber: 11,
-    year: 2024,
-    title: '第11周周报',
-    description: '本周主要进行了项目的性能优化...',
-    createdAt: '2024-03-17',
-  },
-]
+const { data, status } = await useFetch('/api/notion/docs')
+
+const weeklyReports = computed<WeeklyReport[]>(() => {
+  return (data.value ?? []).map((page: any) => {
+    return {
+      id: page.id,
+      title: page.properties.Name.title[0].text.content,
+      description: '',
+      createdAt: new Date(page.last_edited_time).toLocaleDateString(),
+      icon: page.icon?.external.url ?? '',
+    }
+  })
+})
 </script>
 
 <template>
   <TheContainer>
     <div class="space-y-16">
-      <!-- 页面标题 -->
       <div class="space-y-6">
         <h1 class="text-4xl font-bold tracking-tight animate-fade-in">
           Weekly Reports
         </h1>
         <p class="text-lg text-muted-foreground max-w-2xl animate-slide-up">
-          记录每周的工作和生活，保持持续进步。
+          Record my weekly work and progress, and share it with your team.
         </p>
       </div>
 
-      <!-- 时间轴 -->
-      <div class="relative space-y-8">
+      <div v-if="status === 'success'" class="relative space-y-8">
         <div class="absolute left-9 top-2 h-full w-0.5 bg-muted-foreground/20" />
 
         <div
@@ -131,7 +45,6 @@ const weeklyReports: WeeklyReport[] = [
           class="group relative flex items-start animate-slide-up hover:cursor-pointer"
           @click="navigateTo(`/reports/${report.id}`)"
         >
-          <!-- 时间轴圆点 -->
           <div class="absolute left-0 flex h-20 w-20 items-center justify-center">
             <div class="relative h-10 w-10">
               <div class="absolute inset-0 rounded-full border-2 border-muted-foreground/20 group-hover:border-primary transition-colors" />
@@ -139,12 +52,12 @@ const weeklyReports: WeeklyReport[] = [
             </div>
           </div>
 
-          <!-- 内容卡片 -->
           <div class="ml-20 flex-1">
             <div class="rounded-lg border bg-card p-6 transition-all hover:shadow-lg">
               <div class="flex items-center justify-between">
-                <h3 class="text-xl font-semibold group-hover:text-primary transition-colors">
-                  {{ report.year }}-W{{ report.weekNumber.toString().padStart(2, '0') }}
+                <h3 class="text-xl font-semibold group-hover:text-primary transition-colors flex items-center gap-2">
+                  <NuxtImg v-if="report.icon" :src="report.icon" width="36" height="36" />
+                  {{ report.title }}
                 </h3>
                 <time class="text-sm text-muted-foreground">
                   {{ report.createdAt }}
@@ -156,6 +69,9 @@ const weeklyReports: WeeklyReport[] = [
             </div>
           </div>
         </div>
+      </div>
+      <div v-if="status === 'pending'" class="flex items-center justify-center h-96">
+        <Loader2 class="w-12 h-12 animate-spin" />
       </div>
     </div>
   </TheContainer>
